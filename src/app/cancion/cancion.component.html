@@ -1,0 +1,40 @@
+<div *ngIf="cancion != undefined">
+	<h2>Editar Cancion - {{cancion.nombre}} -</h2>
+	<table>
+		<tr>
+			<th>Duracion:</th>
+			<th><input #cancionDuracion1 placeholder="{{cancion.duracion}}" /></th>
+		</tr>
+		<tr>
+			<th>Albúm:</th>
+			<th><input #cancionAlbum1 placeholder="{{cancion.album}}" /></th>
+		</tr>
+		<tr>
+			<th>Rep. Spotify:</th>
+			<th><input #cancionSpotify1 placeholder="{{cancion.spotify}}" /></th>
+		</tr>
+		<tr>
+			<th>Rep. Youtube:</th>
+			<th><input #cancionYoutube1 placeholder="{{cancion.youtube}}" /></th>
+		</tr>
+		<tr>
+			<th>Fecha de Salida:</th>
+			<th><input #cancionFechaSalida1 placeholder="{{cancion.fechaSalida}}" /></th>
+		</tr>
+		<tr>
+			<th>Top50:</th>
+			<th><input #cancionTop501 placeholder="{{cancion.top50}}" /></th>
+		</tr>
+		<tr>
+			<th><button (click)="goBack()">Volver</button></th>
+			<th><button (click)="save(
+				cancionDuracion1.value,
+				cancionAlbum1.value,
+				cancionSpotify1.value,
+				cancionYoutube1.value,
+				cancionFechaSalida1.value,
+				cancionTop501.value
+				)">Guardar</button>
+			</th>
+		</tr>
+	</table>

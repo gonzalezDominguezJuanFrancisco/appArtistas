@@ -1,0 +1,31 @@
+<div *ngIf="miembro != undefined">
+	<h2>Editar Miembro - {{miembro.nombre}} -</h2>
+	<table>
+		<tr>
+			<th class="">Puesto:</th>
+			<th><input #miembroPuesto1 placeholder="{{miembro.puesto}}" /></th>
+		</tr>
+		<tr>
+			<th class="">Fecha de Nacimiento:</th>
+			<th><input #miembroFechaNacimiento1 placeholder="{{miembro.fechaNacimiento}}" /></th>
+		</tr>
+		<tr>
+			<th class="">Fundador:</th>
+			<th><input #miembroFundador1 placeholder="{{miembro.fundador}}" /></th>
+		</tr>
+		<tr>
+			<th class="">Actual:</th>
+			<th><input #miembroActual1 placeholder="{{miembro.actual}}" /></th>
+		</tr>
+		<tr>
+			<th><button (click)="goBack()">Volver</button></th>
+			<th><button (click)="save(
+				miembroNombre1.value,
+				miembroPuesto1.value,
+				miembroFechaNacimiento1.value,
+				miembroFundador1.value,
+				miembroActual1.value
+				)">Guardar</button>
+			</th>
+		</tr>
+	</table>

@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'Times New Roman';
+}
+
+body{
+  background-image: url(https://i.pinimg.com/originals/e4/2c/a9/e42ca9f0ca9a2a2e6b9ee98d11efa7e7.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
+}

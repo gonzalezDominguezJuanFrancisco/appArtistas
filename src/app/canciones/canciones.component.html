@@ -1,0 +1,29 @@
+<br>
+<p>
+	Tabla de todas las canciones
+</p>
+<br>
+<table>
+	<tr>
+		<th>Nº</th>
+		<th>Nombre</th>
+		<th>Duracion</th>
+		<th>Grupo</th>
+		<th>Albúm</th>
+		<th>Rep. Spotify</th>
+		<th>Rep. Youtube</th>
+		<th>Fecha de Salida</th>
+		<th>Top 50</th>
+	</tr>
+	<tr *ngFor="let cancion of canciones; index as c">
+		<th class="pos">{{c+1}}</th>
+		<td>{{cancion.nombre}}</td>
+		<td>{{cancion.duracion}}</td>
+		<td>{{cancion.grupo}}</td>
+		<td>{{cancion.album}}</td>
+		<td>{{cancion.spotify}}</td>
+		<td>{{cancion.youtube}}</td>
+		<td>{{cancion.fechaSalida}}</td>
+		<td>{{cancion.top50}}</td>
+	</tr>
+</table>

@@ -1,0 +1,25 @@
+<br>
+<p>
+	Tabla de todos los miembros
+</p>
+<br>
+<table>
+	<tr>
+		<th>Nº</th>
+		<th>Grupo</th>
+		<th>Nombre</th>
+		<th>Puesto</th>
+		<th>Fecha de Nacimiento</th>
+		<th>Fundador</th>
+		<th>Actual</th>
+	</tr>
+	<tr *ngFor="let miembro of miembros; index as m">
+		<th class="pos">{{m+1}}</th>
+		<td>{{miembro.grupo}}</td>
+		<td>{{miembro.nombre}}</td>
+		<td>{{miembro.puesto}}</td>
+		<td>{{miembro.fechaNacimiento}}</td>
+		<td>{{miembro.fundador}}</td>
+		<td>{{miembro.actual}}</td>
+	</tr>
+</table>

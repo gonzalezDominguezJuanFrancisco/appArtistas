@@ -1,0 +1,43 @@
+* {
+  color: white;
+}
+
+table, th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  td {
+    color: white;
+    background-color: transparent;
+  }
+  
+  th {
+    background-color: #333;
+    border: 1px solid black;
+    text-align: right;
+    color: white
+  }
+  
+  p {
+    text-align: center;
+    color: white;
+  }
+  
+  a {
+    color: white;
+  }
+  
+  input {
+    background-color: #333;
+    text-align: left;
+    border-collapse: collapse;
+  }
+  
+  button {
+    background-color: #333;
+    text-align: center;
+    border-collapse: collapse;
+  }

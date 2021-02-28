@@ -1,0 +1,190 @@
+<div *ngIf="grupo != undefined">
+	<br>
+	<h1>- {{grupo.nombre}} -</h1>
+	<br>
+	<table>
+		<tr>
+			<th colspan="2">Editar grupo</th>
+		</tr>
+		<tr>
+			<th class="t1">Grupo:</th>
+			<th><input #grupoGrupo1 placeholder="{{grupo.grupo}}" /></th>
+		</tr>
+		<tr>
+			<th class="t1">Activo:</th>
+			<th><input #grupoActivo1 placeholder="{{grupo.activo}}" /></th>
+		</tr>
+		<tr>
+			<th class="t1">Oyentes Spotify:</th>
+			<th><input #grupoOyentesSpotify1 placeholder="{{grupo.oyentesSpotify}}" /></th>
+		</tr>
+		<tr>
+			<th class="t1">Oyentes Youtube:</th>
+			<th><input #grupoOyentesYoutube1 placeholder="{{grupo.oyentesYoutube}}" /></th>
+		</tr>
+		<tr>
+			<th class="t1">Genero:</th>
+			<th><input #grupoGenero1 placeholder="{{grupo.genero}}" /></th>
+		</tr>
+		<tr>
+			<th class="t1">Fecha de Creacion:</th>
+			<th><input #grupoFechaCreacion1 placeholder="{{grupo.fechaCreacion}}" /></th>
+		</tr>
+		<tr>
+			<th><button (click)="goBack()">Volver</button></th>
+			<th><button (click)="save(
+				grupoGrupo1.value,
+				grupoActivo1.value, 
+				grupoOyentesSpotify1.value,
+				grupoOyentesYoutube1.value,
+				grupoGenero1.value,
+				grupoFechaCreacion1.value
+				)">Guardar</button>
+			</th>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<th colspan="6">Hacer click en un miembro para editarlo</th>
+		</tr>
+		<tr>
+			<th>Nombre</th>
+			<th>Puesto</th>
+			<th>Fecha Nacimiento</th>
+			<th>Fundador</th>
+			<th>Actual</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let m of grupo.miembros">
+			<td><a routerLink="/miembro/{{m.nombre}}&{{m.grupo}}">{{m.nombre}}</a></td>
+			<td>{{m.puesto}}</td>
+			<td>{{m.fechaNacimiento}}</td>
+			<td>{{m.fundador}}</td>
+			<td>{{m.actual}}</td>
+			<td><button (click)="delete(m)">X</button></td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<table>
+		<tr>
+			<th colspan="2">Añadir miembro a {{grupo.nombre}}</th>
+		</tr>
+		<tr>
+			<th class="t1">Nombre:</th>
+			<th><input #miembroNombre1 /></th>
+		</tr>
+		<tr>
+			<th class="t1">Puesto:</th>
+			<th><input #miembroPuesto1 /></th>
+		</tr>
+		<tr>
+			<th class="t1">Fecha de Nacimiento:</th>
+			<th><input #miembroFechaNacimiento1 /></th>
+		</tr>
+		<tr>
+			<th class="t1">Fundador:</th>
+			<th><input #miembroFundador1 /></th>
+		</tr>
+		<tr>
+			<th class="t1">Actual:</th>
+			<th><input #miembroActual1 /></th>
+		</tr>
+		<tr>
+			<th colspan="2"><button
+			    (click)="add(
+					miembroNombre1.value,
+					miembroPuesto1.value,
+					miembroFechaNacimiento1.value,
+					miembroFundador1.value,
+					miembroActual1.value
+				);
+				miembroNombre1.value = '';
+				miembroPuesto1.value = '';
+				miembroFechaNacimiento1.value = '';
+				miembroFundador1.value = '';
+				miembroActual1.value = ''"
+  			>Añadir</button></th>
+		</tr>
+	</table>
+		<br>
+		<table>
+			<tr>
+				<th colspan="10">Hacer click en una cancion para editarla</th>
+			</tr>
+			<tr>
+				<th>Nombre</th>
+				<th>Duracion</th>
+				<th>Albúm</th>
+				<th>Rep. Spotify</th>
+				<th>Rep. Youtube</th>
+				<th>Fecha de Salida</th>
+				<th>Top50</th>
+				<th></th>
+			</tr>
+			<tr *ngFor="let c of grupo.canciones">
+				<td><a routerLink="/cancion/{{c.nombre}}&{{c.grupo}}">{{c.nombre}}</a></td>
+				<td>{{c.duracion}}</td>
+				<td>{{c.album}}</td>
+				<td>{{c.spotify}}</td>
+				<td>{{c.youtube}}</td>
+				<td>{{c.fechaSalida}}</td>
+				<td>{{c.top50}}</td>
+				<td><button (click)="delete2(c)">X</button></td>
+			</tr>
+		</table>
+		<br>
+		<table>
+			<tr>
+				<th colspan="3">Añadir cancion a {{grupo.nombre}}</th>
+			</tr>
+			<tr>
+				<th class="t1">Nombre:</th>
+				<th><input #cancionNombre1 /></th>
+			</tr>
+			<tr>
+				<th class="t1">Duracion:</th>
+				<th><input #cancionDuracion1 /></th>
+			</tr>
+			<tr>
+				<th class="t1">Albúm:</th>
+				<th><input #cancionAlbum1 /></th>
+			</tr>
+			<tr>
+				<th class="t1">Rep. Spotify:</th>
+				<th><input #cancionSpotify1 /></th>
+			</tr>
+			<tr>
+				<th class="t1">Rep. Youtube:</th>
+				<th><input #cancionYoutube1 /></th>
+			</tr>
+			<tr>
+				<th class="t1">Fecha de Salida:</th>
+				<th><input #cancionFechaSalida1 /></th>
+			</tr>
+			<tr>
+				<th class="t1">Top50:</th>
+				<th><input #cancionTop501 /></th>
+			</tr>
+			<tr>
+				<th colspan="2"><button
+					(click)="add(
+						cancionNombre1.value,
+						cancionDuracion1.value,
+						cancionAlbum1.value,
+						cancionSpotify1.value,
+						cancionYoutube1.value,
+						cancionFechaSalida1.value,
+						cancionTop501.value
+						);
+					cancionNombre1.value = '';
+					cancionDuracion1.value = '';
+					cancionAlbum1.value = '';
+					cancionSpotify1.value = '';
+					cancionYoutube1.value = '';
+					cancionFechaSalida1.value = '';
+					cancionTop501.value = ''"
+				>Añadir</button></th>
+			</tr>
+		</table>

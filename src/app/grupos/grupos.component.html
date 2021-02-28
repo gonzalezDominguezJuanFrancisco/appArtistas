@@ -1,0 +1,92 @@
+<br>
+<p>
+	Tabla de todos los artistas
+</p>
+<br>
+<p>
+	Haz click en el nombre para vere más detalles
+</p>
+<br>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Nombre</th>
+		<th>Grupo</th>
+		<th>Activo</th>
+		<th>Oyentes Spotify</th>
+		<th>Oyentes Youtube</th>
+		<th>Genero</th>
+		<th>Fecha Creacion</th>
+	</tr>
+	<tr *ngFor="let grupo of grupos; index as g">
+		<th class="pos">{{g+1}}</th>
+		<td><a routerLink="/getGrupo/{{grupo.id}}">{{grupo.nombre}}</a></td>
+		<td>{{grupo.grupo}}</td>
+		<td>{{grupo.activo}}</td>
+		<td>{{grupo.oyentesSpotify}}</td>
+		<td>{{grupo.oyentesYoutube}}</td>
+		<td>{{grupo.genero}}</td>
+		<td>{{grupo.fechaCreacion}}</td>
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<th colspan="2">Añadir nuevo grupo</th>
+	</tr>
+	<tr>
+		<th class="t1">ID:</th>
+		<th class="t2"><input #grupoId1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Nombre:</th>
+		<th class="t2"><input #grupoNombre1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Grupo:</th>
+		<th class="t2"><input #grupoGrupo1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Activo:</th>
+		<th class="t2"><input #grupoActivo1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Oyentes Spotify:</th>
+		<th class="t2"><input #grupoOyentesSpotify1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Oyentes Youtube:</th>
+		<th class="t2"><input #grupoOyentesYoutube1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Genero:</th>
+		<th class="t2"><input #grupoGenero1 /></th>
+	</tr>
+	<tr>
+		<th class="t1">Fecha de Creacion:</th>
+		<th class="t2"><input #grupoFechaCreacion1 /></th>
+	</tr>
+	<tr>
+		<th colspan="2"><button
+    		(click)="add(
+				grupoId1.value, 
+				grupoNombre1.value, 
+				grupoGrupo1.value, 
+				grupoActivo1.value, 
+				grupoOyentesSpotify1.value,
+				grupoOyentesYoutube1.value,
+				grupoGenero1.value,
+				grupoFechaCreacion1.value
+			); 
+			grupoId1.value = ''; 
+			grupoNombre1.value = '';
+			grupoGrupo1.value = '';
+			grupoActivo1.value = '';
+			grupoOyentesSpotify1.value = '';
+			grupoOyentesYoutube1.value = '';
+			grupoGenero1.value = '';
+			grupoFechaCreacion1.value = ''"
+  		>Añadir</button></th>
+	</tr>
+</table>
