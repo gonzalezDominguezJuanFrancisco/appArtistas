@@ -5,96 +5,96 @@ import { Cancion } from "./models/Cancion";
 
 @Injectable({ providedIn: "root" })
 export class GrupoService {
-  private url = "https://artistasapi.herokuapp.com";
+  private url = "https://procancionesapi.herokuapp.com";
   constructor(private http: HttpClient) {}
 
   getGruposApi() {
-    const url = `https://artistasapi.herokuapp.com/getGrupos`;
+    const url = `https://procancionesapi.herokuapp.com/getGrupos`;
     return this.http.get(url);
   }
 
   getMiembros() {
-    const url = `https://artistasapi.herokuapp.com/getMiembros`;
+    const url = `https://procancionesapi.herokuapp.com/getMiembros`;
     return this.http.get(url);
   }
 
   getCanciones() {
-    const url = `https://artistasapi.herokuapp.com/getCanciones`;
+    const url = `https://procancionesapi.herokuapp.com/getCanciones`;
     return this.http.get(url);
   }
 
   getGrupo(id: string) {
-    const url = `https://artistasapi.herokuapp.com/getGrupo/${id}`;
+    const url = `https://procancionesapi.herokuapp.com/getGrupo/${id}`;
     return this.http.get(url);
   }
 
   getMiembro(grupo: string, nombre: string) {
-    const url = `https://artistasapi.herokuapp.com/getMiembro/${grupo}&${nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/getMiembro/${grupo}&${nombre}`;
     return this.http.get(url);
   }
 
   getCancion(grupo: string, nombre: string) {
-    const url = `https://artistasapi.herokuapp.com/getCancion/${grupo}&${nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/getCancion/${grupo}&${nombre}`;
     return this.http.get(url);
   }
 
   addGrupo(doc: any) {
-    const url = "https://artistasapi.herokuapp.com/postGrupo";
+    const url = "https://procancionesapi.herokuapp.com/postGrupo";
     return this.http.post(this.url, doc);
   }
 
   addMiembro(doc: any) {
-    const url = "https://artistasapi.herokuapp.com/postMiembro";
+    const url = "https://procancionesapi.herokuapp.com/postMiembro";
     return this.http.post(url, doc);
   }
 
   addCancion(doc: any) {
-    const url = "https://artistasapi.herokuapp.com/postCancion";
+    const url = "https://procancionesapi.herokuapp.com/postCancion";
     return this.http.post(url, doc);
   }
 
   updateGrupo(doc: any) {
-    const url = `https://artistasapi.herokuapp.com/updateGrupo/${doc.id}`;
+    const url = `https://procancionesapi.herokuapp.com/updateGrupo/${doc.id}`;
     return this.http.post(url, doc);
   }
 
   updateMiembro(doc: any) {
-    const url = `https://artistasapi.herokuapp.com/updateMiembro${doc.grupo}&${doc.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/updateMiembro${doc.grupo}&${doc.nombre}`;
     return this.http.post(url, doc);
   }
 
   updateCancion(doc: any) {
-    const url = `https://artistasapi.herokuapp.com/updateCancion${doc.grupo}&${doc.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/updateCancion${doc.grupo}&${doc.nombre}`;
     return this.http.post(url, doc);
   }
 
   deleteGrupo(id: string) {
-    const url = `https://artistasapi.herokuapp.com/deleteGrupo/${id}`;
+    const url = `https://procancionesapi.herokuapp.com/deleteGrupo/${id}`;
     return this.http.get(url);
   }
 
   deleteMiembro(miembro: Miembro) {
-    const url = `https://artistasapi.herokuapp.com/deleteMiembro/${miembro.grupo}&${miembro.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/deleteMiembro/${miembro.grupo}&${miembro.nombre}`;
     return this.http.get(url);
   }
 
   deleteCancion(cancion: Cancion) {
-    const url = `https://artistasapi.herokuapp.com/deleteCancion/${cancion.grupo}&${cancion.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/deleteCancion/${cancion.grupo}&${cancion.nombre}`;
     return this.http.get(url);
   }
 
   getDuraciones() {
-    const url = `https://artistasapi.herokuapp.com/getDuraciones`;
+    const url = `https://procancionesapi.herokuapp.com/getDuraciones`;
     return this.http.get(url);
   }
 
   getFechaS() {
-    const url = `https://artistasapi.herokuapp.com/getFechaS`;
+    const url = `https://procancionesapi.herokuapp.com/getFechaS`;
     return this.http.get(url);
   }
 
   getEdades() {
-    const url = `https://artistasapi.herokuapp.com/getEdades`;
+    const url = `https://procancionesapi.herokuapp.com/getEdades`;
     return this.http.get(url);
   }
 }
