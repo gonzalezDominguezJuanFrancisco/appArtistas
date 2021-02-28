@@ -2,7 +2,7 @@
 const app = express()
 app.use(express.static('./dist/'));
 app.get('/*', function(req, res) {
- res.sendFile('index.html', {root: 'dist/artistasapp/'}
+ res.sendFile('index.html', {root: 'dist/porcanciones3/'}
  );
 });
 const port = 3500;
