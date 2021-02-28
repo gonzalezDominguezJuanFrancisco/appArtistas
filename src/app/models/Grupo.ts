@@ -1,5 +1,5 @@
-import { Cancion } from "./cancion";
-import { Miembro } from "./miembro";
+import { Cancion } from "./Cancion";
+import { Miembro } from "./Miembro";
 
 export class Grupo {
   private _id: string;
