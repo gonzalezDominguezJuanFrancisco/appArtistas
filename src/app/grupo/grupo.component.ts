@@ -109,7 +109,7 @@ export class GrupoComponent implements OnInit {
     top50: string
   ) {
     const nombre2 = nombre;
-    const duracion2 = parseInt(duracion);
+    const duracion2 = parseFloat(duracion);
     const album2 = album;
     const spotify2 = parseInt(spotify);
     const youtube2 = parseInt(youtube);
