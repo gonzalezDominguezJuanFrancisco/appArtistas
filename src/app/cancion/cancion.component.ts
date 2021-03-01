@@ -30,6 +30,7 @@ export class CancionComponent implements OnInit {
     this.grupoService.getCancion(grupo, nombre).subscribe(c => {
       this.cancionApi = c;
       this.cancion = new Cancion(
+        this.cancionApi._id,
         this.cancionApi.nombre,
         this.cancionApi.duracion,
         this.cancionApi.grupo,
@@ -56,9 +57,10 @@ export class CancionComponent implements OnInit {
     const spotify2 = parseInt(spotify);
     const youtube2 = parseInt(youtube);
     const fechaSalida2 = new Date(fechaSalida);
-    const top502 = Boolean(top50);
+    const top502 = Boolean(JSON.parse(top50));
 
     const doc = {
+      id: this.cancion.id,
       nombre: this.cancion.nombre,
       duracion: duracion2,
       album: album2,
@@ -68,6 +70,7 @@ export class CancionComponent implements OnInit {
       fechaSalida: fechaSalida2,
       top50: top502
     };
+    console.log(doc);
     this.grupoService.updateCancion(doc).subscribe(() => this.goBack());
   }
 

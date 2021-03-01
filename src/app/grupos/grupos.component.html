@@ -18,6 +18,7 @@
 		<th>Oyentes Youtube</th>
 		<th>Genero</th>
 		<th>Fecha Creacion</th>
+		<th></th>
 	</tr>
 	<tr *ngFor="let grupo of grupos; index as g">
 		<th class="pos">{{g+1}}</th>
@@ -28,6 +29,7 @@
 		<td>{{grupo.oyentesYoutube}}</td>
 		<td>{{grupo.genero}}</td>
 		<td>{{grupo.fechaCreacion}}</td>
+		<td><button (click)="delete(grupo)">X</button></td>
 	</tr>
 </table>
 <br>

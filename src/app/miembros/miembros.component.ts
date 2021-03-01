@@ -19,6 +19,7 @@ export class MiembrosComponent implements OnInit {
       this.miembrosApi = miembros;
       for (let miembro of this.miembrosApi) {
         let m = new Miembro(
+          miembro._id,
           miembro.grupo,
           miembro.nombre,
           miembro.puesto,

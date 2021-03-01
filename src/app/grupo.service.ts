@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Grupo } from "./models/Grupo";
 import { Miembro } from "./models/Miembro";
 import { Cancion } from "./models/Cancion";
 
@@ -40,7 +41,7 @@ export class GrupoService {
 
   addGrupo(doc: any) {
     const url = "https://procancionesapi.herokuapp.com/postGrupo";
-    return this.http.post(this.url, doc);
+    return this.http.post(url, doc);
   }
 
   addMiembro(doc: any) {
@@ -59,27 +60,28 @@ export class GrupoService {
   }
 
   updateMiembro(doc: any) {
-    const url = `https://procancionesapi.herokuapp.com/updateMiembro${doc.grupo}&${doc.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/updateMiembro/${doc.id}`;
     return this.http.post(url, doc);
   }
 
   updateCancion(doc: any) {
-    const url = `https://procancionesapi.herokuapp.com/updateCancion${doc.grupo}&${doc.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/updateCancion/${doc.id}`;
+    console.log(url);
     return this.http.post(url, doc);
   }
 
-  deleteGrupo(id: string) {
-    const url = `https://procancionesapi.herokuapp.com/deleteGrupo/${id}`;
+  deleteGrupo(grupo: Grupo) {
+    const url = `https://procancionesapi.herokuapp.com/deleteGrupo/${grupo.id}`;
     return this.http.get(url);
   }
 
   deleteMiembro(miembro: Miembro) {
-    const url = `https://procancionesapi.herokuapp.com/deleteMiembro/${miembro.grupo}&${miembro.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/deleteMiembro/${miembro.id}`;
     return this.http.get(url);
   }
 
   deleteCancion(cancion: Cancion) {
-    const url = `https://procancionesapi.herokuapp.com/deleteCancion/${cancion.grupo}&${cancion.nombre}`;
+    const url = `https://procancionesapi.herokuapp.com/deleteCancion/${cancion.id}`;
     return this.http.get(url);
   }
 

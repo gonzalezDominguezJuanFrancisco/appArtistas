@@ -1,6 +1,6 @@
 <div *ngIf="grupo != undefined">
 	<br>
-	<h1>- {{grupo.nombre}} -</h1>
+	<h1>- {{grupoApi[0].nombre}} -</h1>
 	<br>
 	<table>
 		<tr>
@@ -8,27 +8,27 @@
 		</tr>
 		<tr>
 			<th class="t1">Grupo:</th>
-			<th><input #grupoGrupo1 placeholder="{{grupo.grupo}}" /></th>
+			<th><input #grupoGrupo1 placeholder="{{grupoApi[0].grupo}}" /></th>
 		</tr>
 		<tr>
 			<th class="t1">Activo:</th>
-			<th><input #grupoActivo1 placeholder="{{grupo.activo}}" /></th>
+			<th><input #grupoActivo1 placeholder="{{grupoApi[0].activo}}" /></th>
 		</tr>
 		<tr>
 			<th class="t1">Oyentes Spotify:</th>
-			<th><input #grupoOyentesSpotify1 placeholder="{{grupo.oyentesSpotify}}" /></th>
+			<th><input #grupoOyentesSpotify1 placeholder="{{grupoApi[0].oyentesSpotify}}" /></th>
 		</tr>
 		<tr>
 			<th class="t1">Oyentes Youtube:</th>
-			<th><input #grupoOyentesYoutube1 placeholder="{{grupo.oyentesYoutube}}" /></th>
+			<th><input #grupoOyentesYoutube1 placeholder="{{grupoApi[0].oyentesYoutube}}" /></th>
 		</tr>
 		<tr>
 			<th class="t1">Genero:</th>
-			<th><input #grupoGenero1 placeholder="{{grupo.genero}}" /></th>
+			<th><input #grupoGenero1 placeholder="{{grupoApi[0].genero}}" /></th>
 		</tr>
 		<tr>
 			<th class="t1">Fecha de Creacion:</th>
-			<th><input #grupoFechaCreacion1 placeholder="{{grupo.fechaCreacion}}" /></th>
+			<th><input #grupoFechaCreacion1 placeholder="{{grupoApi[0].fechaCreacion}}" /></th>
 		</tr>
 		<tr>
 			<th><button (click)="goBack()">Volver</button></th>
@@ -169,7 +169,7 @@
 			</tr>
 			<tr>
 				<th colspan="2"><button
-					(click)="add(
+					(click)="add2(
 						cancionNombre1.value,
 						cancionDuracion1.value,
 						cancionAlbum1.value,

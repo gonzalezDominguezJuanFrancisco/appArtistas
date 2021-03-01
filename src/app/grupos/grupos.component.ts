@@ -23,6 +23,7 @@ export class GruposComponent implements OnInit {
         let miembros: Array<Miembro> = new Array();
         for (let miembro of grupo.miembros) {
           let m = new Miembro(
+            miembro._id,
             miembro.grupo,
             miembro.nombre,
             miembro.puesto,
@@ -35,6 +36,7 @@ export class GruposComponent implements OnInit {
         let canciones: Array<Cancion> = new Array();
         for (let cancion of grupo.canciones) {
           let c = new Cancion(
+            cancion._id,
             cancion.nombre,
             cancion.duracion,
             cancion.grupo,
@@ -70,13 +72,13 @@ export class GruposComponent implements OnInit {
     activo: string,
     oyentesSpotify: string,
     oyentesYoutube: string,
-    genero: Array<string>,
+    genero: string,
     fechaCreacion: string,
   ) {
     const id2 = id;
     const nombre2 = nombre;
-    const grupo2 = Boolean(grupo);
-    const activo2 = Boolean(activo);
+    const grupo2 = Boolean(JSON.parse(grupo));
+    const activo2 = Boolean(JSON.parse(activo));
     const oyentesSpotify2 = parseInt(oyentesSpotify);
     const oyentesYoutube2 = parseInt(oyentesYoutube);
     const genero2 = genero;
@@ -97,6 +99,13 @@ export class GruposComponent implements OnInit {
       this.gruposTmp = newDoc;
       this.grupos.push(this.gruposTmp);
     });
+  }
+
+  delete(grupo: Grupo): void {
+    this.grupos.forEach((g, index) => {
+      if (g === grupo) this.grupos.splice(index, 1);
+    });
+    this.grupoService.deleteGrupo(grupo).subscribe();
   }
 
   ngOnInit() {

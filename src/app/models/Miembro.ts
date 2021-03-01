@@ -1,4 +1,5 @@
 export class Miembro {
+  private _id: string;
   private _grupo: string;
   private _nombre: string;
   private _puesto: Array<string>;
@@ -7,6 +8,7 @@ export class Miembro {
   private _actual: boolean;
 
   constructor(
+    _id: string,
     _grupo: string,
     _nombre: string,
     _puesto: Array<string>,
@@ -14,6 +16,7 @@ export class Miembro {
     _fundador: boolean,
     _actual: boolean
     ) {
+      this._id = _id;
       this._grupo = _grupo;
       this._nombre = _nombre;
       this._puesto = _puesto;
@@ -22,6 +25,9 @@ export class Miembro {
       this._actual = _actual;
     }
 
+    get id() {
+      return this._id;
+    }
     get grupo() {
       return this._grupo;
     }

@@ -30,6 +30,7 @@ export class MiembroComponent implements OnInit {
     this.grupoService.getMiembro(grupo, nombre).subscribe(m => {
       this.miembroApi = m;
       this.miembro = new Miembro(
+        this.miembroApi._id,
         this.miembroApi.grupo,
         this.miembroApi.nombre,
         this.miembroApi.puesto,
@@ -49,10 +50,11 @@ export class MiembroComponent implements OnInit {
   ): void {
     const puesto2 = puesto;
     const fechaNacimiento2 = new Date(fechaNacimiento);
-    const fundador2 = Boolean(fundador);
-    const actual2 = Boolean(actual);
+    const fundador2 = Boolean(JSON.parse(fundador));
+    const actual2 = Boolean(JSON.parse(actual));
 
     const doc = {
+      id: this.miembro.id,
       grupo: this.miembro.grupo,
       nombre: this.miembro.nombre,
       puesto: puesto2,

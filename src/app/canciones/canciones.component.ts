@@ -19,6 +19,7 @@ export class CancionesComponent implements OnInit {
       this.cancionesApi = canciones;
       for (let cancion of this.cancionesApi) {
         let c = new Cancion(
+          cancion._id,
           cancion.nombre,
           cancion.duracion,
           cancion.grupo,

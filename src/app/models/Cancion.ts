@@ -1,4 +1,5 @@
 export class Cancion {
+    private _id: string;
     private _nombre: string;
     private _duracion: number;
     private _grupo: string;
@@ -9,6 +10,7 @@ export class Cancion {
     private _top50: boolean;
   
     constructor(
+        _id: string,
         _nombre: string,
         _duracion: number,
         _grupo: string,
@@ -18,6 +20,7 @@ export class Cancion {
         _fechaSalida: Date,
         _top50: boolean
     ) {
+      this._id = _id;
       this._nombre = _nombre;
       this._duracion = _duracion;
       this._grupo = _grupo;
@@ -28,6 +31,9 @@ export class Cancion {
       this._top50 = _top50;
     }
 
+    get id() {
+      return this._id
+    }
     get nombre() {
       return this._nombre;
     }

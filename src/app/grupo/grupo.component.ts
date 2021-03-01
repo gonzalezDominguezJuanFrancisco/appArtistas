@@ -14,6 +14,8 @@ import { Location } from "@angular/common";
 export class GrupoComponent implements OnInit {
   grupo: Grupo;
   grupoApi = null;
+  miembroTmp: any;
+  cancionTmp: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +30,7 @@ export class GrupoComponent implements OnInit {
       let miembros: Array<Miembro> = new Array();
       for (let miembro of this.grupoApi[0].miembros) {
         let m = new Miembro(
+          miembro._id,
           miembro.grupo,
           miembro.nombre,
           miembro.puesto,
@@ -39,7 +42,9 @@ export class GrupoComponent implements OnInit {
       }
       let canciones: Array<Cancion> = new Array();
       for (let cancion of this.grupoApi[0].canciones) {
+        console.log(cancion._id)
         let c = new Cancion(
+          cancion._id,
           cancion.nombre,
           cancion.duracion,
           cancion.grupo,
@@ -52,14 +57,14 @@ export class GrupoComponent implements OnInit {
           canciones.push(c);
         }
       this.grupo = new Grupo(
-        this.grupoApi.id,
-        this.grupoApi.nombre,
-        this.grupoApi.grupo,
-        this.grupoApi.activo,
-        this.grupoApi.oyentesSpotify,
-        this.grupoApi.oyentesYoutube,
-        this.grupoApi.genero,
-        this.grupoApi.fechaCreacion,
+        this.grupoApi[0].id,
+        this.grupoApi[0].nombre,
+        this.grupoApi[0].grupo,
+        this.grupoApi[0].activo,
+        this.grupoApi[0].oyentesSpotify,
+        this.grupoApi[0].oyentesYoutube,
+        this.grupoApi[0].genero,
+        this.grupoApi[0].fechaCreacion,
         canciones,
         miembros
       );
@@ -68,7 +73,7 @@ export class GrupoComponent implements OnInit {
 
   add(
     nombre: string,
-    puesto: string,
+    puesto: Array<string>,
     fechaNacimiento: string,
     fundador: string,
     actual: string
@@ -76,11 +81,11 @@ export class GrupoComponent implements OnInit {
     const nombre2 = nombre;
     const puesto2 = puesto;
     const fechaNacimiento2 = new Date(fechaNacimiento);
-    const fundador2 = Boolean(fundador);
-    const actual2 = Boolean(actual);
+    const fundador2 = Boolean(JSON.parse(fundador));
+    const actual2 = Boolean(JSON.parse(actual));
 
     const newDoc: any = {
-      grupo: this.grupo.nombre,
+      grupo: this.grupoApi[0].nombre,
       nombre: nombre2,
       puesto: puesto2,
       fechaNacimiento: fechaNacimiento2,
@@ -88,14 +93,47 @@ export class GrupoComponent implements OnInit {
       actual: actual2
     };
 
-    this.grupoService.addGrupo(newDoc).subscribe(j => {
+    this.grupoService.addMiembro(newDoc).subscribe(j => {
       const miembroTmp: any = newDoc;
       this.grupo.miembros.push(miembroTmp);
     });
   }
 
-  save(
+  add2(
     nombre: string,
+    duracion: string,
+    album: string,
+    spotify: string,
+    youtube: string,
+    fechaSalida: string,
+    top50: string
+  ) {
+    const nombre2 = nombre;
+    const duracion2 = parseInt(duracion);
+    const album2 = album;
+    const spotify2 = parseInt(spotify);
+    const youtube2 = parseInt(youtube);
+    const fechaSalida2 = new Date(fechaSalida);
+    const top502 = Boolean(JSON.parse(top50));
+
+    const newDoc: any = {
+      nombre: nombre2,
+      duracion: duracion2,
+      grupo: this.grupoApi[0].nombre,
+      album: album2,
+      spotify: spotify2,
+      youtube: youtube2,
+      fechaSalida: fechaSalida2,
+      top50: top502
+    };
+
+    this.grupoService.addCancion(newDoc).subscribe(j => {
+      const cancionTmp: any = newDoc;
+      this.grupo.miembros.push(cancionTmp);
+    });
+  }
+
+  save(
     grupo: string,
     activo: string,
     oyentesSpotify: string,
@@ -103,17 +141,16 @@ export class GrupoComponent implements OnInit {
     genero: Array<string>,
     fechaCreacion: string
     ): void {
-    const nombre2 = nombre;
-    const grupo2 = Boolean(grupo);
-    const activo2 = Boolean(activo);
+    const grupo2 = Boolean(JSON.parse(grupo));
+    const activo2 = Boolean(JSON.parse(activo));
     const oyentesSpotify2 = parseInt(oyentesSpotify);
     const oyentesYoutube2 = parseInt(oyentesYoutube);
     const genero2 = genero;
     const fechaCreacion2 = new Date(fechaCreacion);
 
     const doc = {
-      id: this.grupo.id,
-      nombre: nombre2,
+      id: this.grupoApi[0].id,
+      nombre: this.grupoApi[0].nombre,
       grupo: grupo2,
       activo: activo2,
       oyentesSpotify: oyentesSpotify2,
